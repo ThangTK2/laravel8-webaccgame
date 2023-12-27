@@ -43,12 +43,12 @@
                     <div class="classWithPad">
                     <div class="news_image">
                         <img style="position: absolute;max-width: 79px;height: auto;top: -5px;right: -6px;z-index: 1122;" src="{{asset('fe/images/giam.png')}}"/>
-                        <a href="#" title="Danh Mục Game Free Fire" class="">
+                        <a href="{{ route('danhmuc') }}" title="Danh Mục Game Free Fire" class="">
                         <img src="{{asset('fe/images/danhmuc.gif')}}" alt="Danh Mục Game Free Fire"></a>
                     </div>
                     <div class="news_title">
                         <h2>
-                            <a href="#" title="Danh Mục Game Liên Quân">Danh Mục Game Liên Quân</a>
+                            <a href="{{ route('danhmuc') }}" title="Danh Mục Game Liên Quân">Danh Mục Game Liên Quân</a>
                         </h2>
                     </div>
                     <div class="news_description">

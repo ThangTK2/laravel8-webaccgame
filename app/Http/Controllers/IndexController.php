@@ -15,4 +15,11 @@ class IndexController extends Controller
     public function dichvucon($slug){
         return view('pages.sub_service', compact('slug'));
     }
+
+    public function danhmuc(){
+        return view('pages.category');
+    }
+    public function danhmuccon($slug){
+        return view('pages.sub_category', compact('slug'));
+    }
 }
