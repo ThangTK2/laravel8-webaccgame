@@ -24,9 +24,11 @@ Route::get('/dich-vu/{slug}', [IndexController::class, 'dichvucon'])->name('dich
 Route::get('/danh-muc', [IndexController::class, 'danhmuc'])->name('danhmuc'); // tat ca danh muc
 Route::get('/danh-muc/{slug}', [IndexController::class, 'danhmuccon'])->name('danhmuccon');//dịch vụ con thuộc danh muc
 
+
+//Category
+Route::resource('/category', CategoryController::class); //resource: gồm thêm sửa xóa cập nhật
+
 // Authentication
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-//Category
-Route::resource('/home', CategoryController::class); //resource: gồm thêm sửa xóa cập nhật

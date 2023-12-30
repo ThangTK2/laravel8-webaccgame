@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::orderBy('id', 'DESC')->get();
+        return view('admin.category.index', compact('category'));
     }
 
     /**
@@ -23,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -34,7 +36,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $category = new Category();
+        $category->title = $data['title'];
+        $category->image = 'hinhanh1.jpg';
+        $category->description = $data['description'];
+        $category->status = $data['status'];
+        $category->save();
+        return redirect()->back();
     }
 
     /**
