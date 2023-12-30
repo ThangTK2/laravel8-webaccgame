@@ -26,18 +26,29 @@
                             <th>Mô tả</th>
                             <th>Hiển thị</th>
                             <th>Hình ảnh</th>
-                            <th>Thứ tự</th>
+                            <th>Quản lý</th>
+                            <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach ($category as $key => $item)
                                 <tr>
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
+                                    <td>{{ $key + 1}}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->description }}</td>
+                                    <td>
+                                        @if ($item->status ==0)
+                                            Không hiển thị
+                                        @else
+                                            Hiển thị
+                                        @endif
+                                    </td>
+                                    <td><img src="{{ asset('uploads/category/'.$item->image) }}" alt="Hình ảnh" height="80px" width="150px"></td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <a href="" class="btn btn-warning">Sửa</a>
+                                        <a href="" class="btn btn-danger">Xóa</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

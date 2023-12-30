@@ -42,7 +42,17 @@ class CategoryController extends Controller
         $category->image = 'hinhanh1.jpg';
         $category->description = $data['description'];
         $category->status = $data['status'];
-        $category->save();
+
+        //thêm ảnh vào folder
+        $get_image = $request->image;
+        $path = 'uploads/category/';  //hình ảnh sẽ được lưu trong thư mục public/uploads/category/
+        $get_name_image = $get_image->getClientOriginalName(); // Lấy tên gốc của tệp hình ảnh
+        $name_image = current(explode('.', $get_name_image));  //Lấy tên của hình ảnh mà không bao gồm phần mở rộng  hinh . jpg --> hinh là tên của hình ảnh và sau đó chọn phần đầu tiên của mảng kết quả bằng current().
+        $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalName(); //Tạo một tên mới cho hình ảnh bằng cách thêm một số ngẫu nhiên từ 0 đến 99. Điều này giúp tránh việc trùng lặp tên khi nhiều người dùng tải lên cùng một tên hình ảnh.
+        $get_image->move($path, $new_image); // Di chuyển hình ảnh đã chọn đến thư mục
+        $category->image = $new_image; //Lưu tên mới của hình ảnh vào trường image
+
+        $category->save();  //lưu thông tin của đối tượng $category vào cơ sở dữ liệu.
         return redirect()->back();
     }
 

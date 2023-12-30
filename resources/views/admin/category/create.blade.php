@@ -19,6 +19,7 @@
                     @endif
                     <a href="{{ route('category.index') }}" class="btn btn-success">Liệt kê danh mục game</a>
                     <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+                        {{-- enctype: dữ liệu của biểu mẫu sẽ được mã hóa trước khi gửi lên server. multipart/form-data được sử dụng khi form chứa các file. khi bạn muốn gửi các file từ from lên server. --}}
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
@@ -26,7 +27,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Image</label>
-                            <input type="text" class="form-control-file" name="image" placeholder="Input title...">
+                            <input type="file" class="form-control-file" name="image" placeholder="Input title...">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
