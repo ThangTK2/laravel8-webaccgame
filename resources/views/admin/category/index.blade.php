@@ -18,6 +18,7 @@
                         </div>
                     @endif
                     <a href="{{ route('category.create') }}" class="btn btn-success">Thêm danh mục game</a>
+                    <br><br>
                     <table class="table table-bordered">
                         <thead>
                           <tr>
@@ -46,8 +47,12 @@
                                     <td><img src="{{ asset('uploads/category/'.$item->image) }}" alt="Hình ảnh" height="80px" width="150px"></td>
                                     <td></td>
                                     <td>
-                                        <a href="" class="btn btn-warning">Sửa</a>
-                                        <a href="" class="btn btn-danger">Xóa</a>
+                                        <a href="{{ route('category.edit', $item->id) }}" class="btn btn-warning">Sửa</a>
+                                        <form id="deleteForm{{ $item->id }}" action="{{ route('category.destroy', $item->id) }}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button onclick="return confirm('Bạn có muốn xóa danh mục game này không?')" class="btn btn-danger">Xóa</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
