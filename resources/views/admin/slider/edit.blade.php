@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Cập Nhật Danh Mục Game</div>
+                <div class="card-header">Cập Nhật Slider</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,38 +17,33 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('category.index') }}" class="btn btn-success">Danh sách danh mục game</a>
-                    <a href="{{ route('category.create') }}" class="btn btn-success">Thêm danh mục game</a>
+                    <a href="{{ route('slider.index') }}" class="btn btn-success">Danh sách slider</a>
                     <br><br>
-                    <form action="{{ route('category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
                         {{-- enctype: dữ liệu của biểu mẫu sẽ được mã hóa trước khi gửi lên server. multipart/form-data được sử dụng khi form chứa các file. khi bạn muốn gửi các file từ from lên server. --}}
                         @csrf
                         @method('PUT')
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="text" class="form-control" value="{{ $category->title }}" name="title" id="slug" onkeyup="ChangeToSlug()" placeholder="Input title..." required>
+                            <input type="text" class="form-control" name="title" value="{{ $slider->title }}" placeholder="Input title...">
                         </div>
+                        {{--@error: tự động sinh ra khi validate lỗi, $message củng vậy  --}}
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Slug</label>
-                            <input type="text" class="form-control" value="{{ $category->slug }}" name="slug" id="convert_slug" placeholder="Input title..." required>
+                            <label for="exampleInputEmail1">Image</label>
+                            <input type="file" class="form-control-file" name="image">
+                            <img src="{{ asset('uploads/slider/'.$slider->image) }}" alt="Hình ảnh" height="80px" width="150px">
                         </div>
-                        @error('slug')
+                        @error('image')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Image</label>
-                            <input type="file" class="form-control-file"  name="image" placeholder="Input title...">
-                            <img src="{{ asset('uploads/category/'.$category->image) }}" alt="Hình ảnh" height="80px" width="150px">
-                        </div>
-
-                        <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
-                            <textarea class="form-control" name="description" required placeholder="Input description...">{{ $category->description }}</textarea>
+                            <textarea class="form-control" name="description"  placeholder="Input description...">{{ $slider->description }}</textarea>
                         </div>
                         @error('description')
                             <div class="text-danger">{{ $message }}</div>
@@ -57,7 +52,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Status</label>
                             <select class="form-control" required name="status">
-                                @if ($category->status==1)
+                                @if ($slider->status==1)
                                     <option value="1" selected>Hiển thị</option>
                                     <option value="0">Không hiển thị</option>
                                 @else

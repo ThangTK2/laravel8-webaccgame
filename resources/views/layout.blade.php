@@ -331,21 +331,13 @@
          <div class="c-content-box">
             <div id="slider" class="owl-theme section section-cate slideshow_full_width ">
                <div id="slide_banner" class="owl-carousel">
-                  <div class="item">
-                     <a href="/" alt="banner chung">
-                     <img src="img/banner.jpg" alt="banner chung">
-                     </a>
-                  </div>
-                  <div class="item">
-                     <a href="/" alt="nitvn2">
-                     <img src="img/banner.jpg" alt="nitvn2">
-                     </a>
-                  </div>
-                  <div class="item">
-                     <a href="/" alt="nitvn3">
-                     <img src="img/banner.jpg" alt="nitvn3">
-                     </a>
-                  </div>
+                @foreach ($slider as $key => $item)
+                    <div class="item container">
+                        <a href="#" alt="{{ $item->title }}">
+                            <img src="{{ asset('uploads/slider/'.$item->image) }}" height="350px" alt="{{ $item->title }}">
+                        </a>
+                    </div>
+                @endforeach
                </div>
             </div>
          </div>

@@ -5,7 +5,10 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
             <a class="nav-link" href="{{ url('/') }}">Dashboard</span></a>
-          </li>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ route('slider.index') }}">Slider</span></a>
+        </li>
         <li class="nav-item active">
           <a class="nav-link" target="_blank_" href="{{ url('/') }}">Trang chủ <span class="sr-only">(current)</span></a>
           {{-- target="_blank_" mở sang trang mới --}}

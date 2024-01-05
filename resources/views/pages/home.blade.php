@@ -44,12 +44,12 @@
                         <div class="classWithPad">
                         <div class="news_image">
                             <img style="position: absolute;max-width: 79px;height: auto;top: -5px;right: -6px;z-index: 1122;" src="{{asset('fe/images/giam.png')}}"/>
-                            <a href="{{ route('danhmuc') }}" title="{{ $item->title }}" class="">
+                            <a href="{{ route('danhmucgame', [$item->slug]) }}" title="{{ $item->title }}" class="">
                             <img src="{{asset('uploads/category/'.$item->image)}}" alt="{{ $item->title }}"></a>
                         </div>
                         <div class="news_title">
                             <h2>
-                                <a href="{{ route('danhmuc') }}" title="{{ $item->title }}">{{ $item->title }}</a>
+                                <a href="{{ route('danhmucgame', [$item->slug]) }}" title="{{ $item->title }}">{{ $item->title }}</a>
                             </h2>
                         </div>
                         <div class="news_description">
