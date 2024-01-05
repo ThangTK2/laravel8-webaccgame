@@ -57,7 +57,12 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                      </table>
+                    </table>
+                    {{-- Paginate --}}
+                    <div>
+                        {{ $category->links('pagination::bootstrap-4') }}
+                        {{-- pagination::bootstrap-4: phân trang theo css bootstrap --}}
+                    </div>
 
                 </div>
             </div>
