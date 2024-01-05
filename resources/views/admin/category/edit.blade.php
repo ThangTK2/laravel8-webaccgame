@@ -11,16 +11,6 @@
             <div class="card">
                 <div class="card-header">Cập Nhật Danh Mục Game</div>
 
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -38,6 +28,9 @@
                             <label for="exampleInputEmail1">Title</label>
                             <input type="text" class="form-control" value="{{ $category->title }}" name="title" placeholder="Input title..." required>
                         </div>
+                        @error('title')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         <div class="form-group">
                             <label for="exampleInputEmail1">Image</label>
                             <input type="file" class="form-control-file"  name="image" placeholder="Input title...">
@@ -47,6 +40,9 @@
                             <label for="exampleInputPassword1">Description</label>
                             <textarea class="form-control" name="description" required placeholder="Input description...">{{ $category->description }}</textarea>
                         </div>
+                        @error('description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Status</label>
                             <select class="form-control" required name="status">

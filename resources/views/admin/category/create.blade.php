@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">Thêm Danh Mục Game</div>
 
-                @if ($errors->any())
+                {{-- @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -19,7 +19,7 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif
+                @endif --}}
 
                 <div class="card-body">
                     @if (session('status'))
@@ -36,14 +36,24 @@
                             <label for="exampleInputEmail1">Title</label>
                             <input type="text" class="form-control" name="title"  placeholder="Input title...">
                         </div>
+                        {{--@error: tự động sinh ra khi validate lỗi, $message củng vậy  --}}
+                        @error('title')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         <div class="form-group">
                             <label for="exampleInputEmail1">Image</label>
                             <input type="file" class="form-control-file" name="image"  placeholder="Input title...">
                         </div>
+                        @error('image')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
                             <textarea class="form-control" name="description"  placeholder="Input description..."></textarea>
                         </div>
+                        @error('description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Status</label>
                             <select class="form-control" name="status">
