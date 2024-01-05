@@ -39,39 +39,41 @@
                 <div class="c-line-center c-theme-bg"></div>
             </div>
             <div class="row row-flex-safari game-list">
-                <div class="col-sm-3 col-xs-6 p-5">
-                    <div class="classWithPad">
-                    <div class="news_image">
-                        <img style="position: absolute;max-width: 79px;height: auto;top: -5px;right: -6px;z-index: 1122;" src="{{asset('fe/images/giam.png')}}"/>
-                        <a href="{{ route('danhmuc') }}" title="Danh Mục Game Free Fire" class="">
-                        <img src="{{asset('fe/images/danhmuc.gif')}}" alt="Danh Mục Game Free Fire"></a>
-                    </div>
-                    <div class="news_title">
-                        <h2>
-                            <a href="{{ route('danhmuc') }}" title="Danh Mục Game Liên Quân">Danh Mục Game Liên Quân</a>
-                        </h2>
-                    </div>
-                    <div class="news_description">
-                        <p>
-                            Số tài khoản: 23,763
-                        </p>
-                        <!-- <p>
-                            Đã bán: 198
-                            </p> -->
-                    </div>
-                    <div class="a-more">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="custom72 view">
-                                <a href="#" class="" title="Danh Mục Game Liên Quân">
-                                    &nbsp;
-                                </a>
+                @foreach ($category as $key => $item)
+                    <div class="col-sm-3 col-xs-6 p-5">
+                        <div class="classWithPad">
+                        <div class="news_image">
+                            <img style="position: absolute;max-width: 79px;height: auto;top: -5px;right: -6px;z-index: 1122;" src="{{asset('fe/images/giam.png')}}"/>
+                            <a href="{{ route('danhmuc') }}" title="{{ $item->title }}" class="">
+                            <img src="{{asset('uploads/category/'.$item->image)}}" alt="{{ $item->title }}"></a>
+                        </div>
+                        <div class="news_title">
+                            <h2>
+                                <a href="{{ route('danhmuc') }}" title="{{ $item->title }}">{{ $item->title }}</a>
+                            </h2>
+                        </div>
+                        <div class="news_description">
+                            <p>
+                                Số tài khoản: 23,763
+                            </p>
+                            <!-- <p>
+                                Đã bán: 198
+                                </p> -->
+                        </div>
+                        <div class="a-more">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="custom72 view">
+                                    <a href="#" class="" title="{{ $item->title }}">
+                                        &nbsp;
+                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
+                @endforeach
                 <!-- End-->
             </div>
             <!-- End-->

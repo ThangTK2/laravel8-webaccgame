@@ -34,12 +34,21 @@
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="text" class="form-control" name="title"  placeholder="Input title...">
+                            <input type="text" class="form-control" name="title" id="slug" onkeyup="ChangeToSlug()" placeholder="Input title...">
                         </div>
                         {{--@error: tự động sinh ra khi validate lỗi, $message củng vậy  --}}
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Slug</label>
+                            <input type="text" class="form-control" name="slug" id="convert_slug" placeholder="Input title...">
+                        </div>
+                        @error('slug')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+
                         <div class="form-group">
                             <label for="exampleInputEmail1">Image</label>
                             <input type="file" class="form-control-file" name="image"  placeholder="Input title...">
@@ -47,6 +56,7 @@
                         @error('image')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
+
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
                             <textarea class="form-control" name="description"  placeholder="Input description..."></textarea>
@@ -54,6 +64,7 @@
                         @error('description')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
+
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Status</label>
                             <select class="form-control" name="status">

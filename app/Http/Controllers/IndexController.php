@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
     public function home(){
-        return view('pages.home');
+        $category = Category::orderBy('id', 'DESC')->get();
+        return view('pages.home', compact('category'));
     }
     public function dichvu(){
         return view('pages.services');

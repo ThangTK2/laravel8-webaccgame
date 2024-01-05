@@ -26,16 +26,26 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="text" class="form-control" value="{{ $category->title }}" name="title" placeholder="Input title..." required>
+                            <input type="text" class="form-control" value="{{ $category->title }}" name="title" id="slug" onkeyup="ChangeToSlug()" placeholder="Input title..." required>
                         </div>
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Slug</label>
+                            <input type="text" class="form-control" value="{{ $category->slug }}" name="slug" id="convert_slug" placeholder="Input title..." required>
+                        </div>
+                        @error('slug')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+
                         <div class="form-group">
                             <label for="exampleInputEmail1">Image</label>
                             <input type="file" class="form-control-file"  name="image" placeholder="Input title...">
                             <img src="{{ asset('uploads/category/'.$category->image) }}" alt="Hình ảnh" height="80px" width="150px">
                         </div>
+
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
                             <textarea class="form-control" name="description" required placeholder="Input description...">{{ $category->description }}</textarea>
@@ -43,6 +53,7 @@
                         @error('description')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
+
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Status</label>
                             <select class="form-control" required name="status">
