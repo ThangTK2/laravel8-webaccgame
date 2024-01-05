@@ -37,6 +37,22 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        $data = $request->validate(
+            [
+                'title' => 'required|unique:categories|max:255',
+                'description'=>'required|max:255',
+                'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=2000,max_height=2000',
+                'status' => 'required'
+            ],
+            [
+                'title.unique' => 'Tên danh mục game đã tồn tại, xin vui lòng điền tên khác',
+                'title.required' => 'Tên danh mục game phải có',
+                'description.required' => 'Mô tả danh mục game phải có',
+                'image.required' => 'Hình ảnh phải có'
+            ]
+        );
+
         $category = new Category();
         $category->title = $data['title'];
         $category->description = $data['description'];
@@ -52,7 +68,7 @@ class CategoryController extends Controller
         $category->image = $new_image; //Lưu tên mới của hình ảnh vào trường image
 
         $category->save();  //lưu thông tin của đối tượng $category vào cơ sở dữ liệu.
-        return redirect()->back();
+        return redirect()->route('category.index')->with('status', 'Thêm danh mục game thành công');
     }
 
     /**
@@ -88,6 +104,20 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+
+        $data = $request->validate(
+            [
+                'title' => 'required|unique:categories|max:255',
+                'description'=>'required|max:255',
+                'status' => 'required'
+            ],
+            [
+                'title.unique' => 'Tên danh mục game đã tồn tại, xin vui lòng điền tên khác',
+                'title.required' => 'Tên danh mục game phải có',
+                'description.required' => 'Mô tả danh mục game phải có'
+            ]
+        );
+
         $category = Category::find($id);
         $category->title = $data['title'];
         $category->description = $data['description'];
@@ -110,7 +140,7 @@ class CategoryController extends Controller
             $category->image = $new_image; //Lưu tên mới của hình ảnh vào trường image
         }
         $category->save();  //lưu thông tin của đối tượng $category vào cơ sở dữ liệu.
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Cập nhật danh mục game thành công');
     }
 
     /**

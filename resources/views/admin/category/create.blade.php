@@ -11,6 +11,16 @@
             <div class="card">
                 <div class="card-header">Thêm Danh Mục Game</div>
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -24,15 +34,15 @@
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="text" class="form-control" name="title" required placeholder="Input title...">
+                            <input type="text" class="form-control" name="title"  placeholder="Input title...">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Image</label>
-                            <input type="file" class="form-control-file" name="image" required placeholder="Input title...">
+                            <input type="file" class="form-control-file" name="image"  placeholder="Input title...">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
-                            <textarea class="form-control" name="description" required placeholder="Input description..."></textarea>
+                            <textarea class="form-control" name="description"  placeholder="Input description..."></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Status</label>
