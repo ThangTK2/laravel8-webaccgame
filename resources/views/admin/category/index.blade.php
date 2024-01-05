@@ -19,7 +19,7 @@
                     @endif
                     <a href="{{ route('category.create') }}" class="btn btn-success">Thêm danh mục game</a>
                     <br><br>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="myTable">
                         <thead>
                           <tr>
                             <th>Id</th>
