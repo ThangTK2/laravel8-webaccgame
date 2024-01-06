@@ -21,7 +21,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <h5>{!!$blogs->description!!}</h5>
                     <p>{!!$blogs->content!!}</p>
                 </div>
 

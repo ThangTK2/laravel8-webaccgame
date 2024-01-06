@@ -73,6 +73,17 @@
                                     <option value="0" selected>Không hiển thị</option>
                                 @endif
                             </select>
+
+                            <label for="exampleFormControlSelect1">Loại tin</label>
+                            <select class="form-control" required name="kind_of_blogs">
+                                @if ($blog->kind_of_blogs=='blogs')
+                                    <option selected value="blogs">Blogs</option>
+                                    <option value="huongdan">Hướng dẫn</option>
+                                @else
+                                    <option value="blogs">Blogs</option>
+                                    <option selected value="huongdan">Hướng dẫn</option>
+                                @endif
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Cập nhật</button>
                     </form>

@@ -19,7 +19,7 @@
         </div>
         <div class="c-content-box c-size-md">
         <div class="container">
-            <form class="form-horizontal form-find m-b-20" role="form" method="get" data-hs-cf-bound="true">
+            {{-- <form class="form-horizontal form-find m-b-20" role="form" method="get" data-hs-cf-bound="true">
                 <div class="row">
                     <div class="col-md-4">
                     <input type="text" class="form-control c-square c-theme" name="key" autocomplete="off" autofocus="" placeholder="Nhập từ khóa..." value="" style="width: 100%">
@@ -29,7 +29,7 @@
                     <a class="btn c-btn-square m-b-10 btn-danger" href="https://nick.vn/blog">Tất cả</a>
                     </div>
                 </div>
-            </form>
+            </form> --}}
             <div class="row">
                 <div class="col-md-9">
                     <div class="art-list">
@@ -37,7 +37,7 @@
                             <div class="a-item">
                                 <div class="thumbnail-image img-thumbnail">
                                     <a href="{{ route('blogs_detail', [$blog->slug]) }}">
-                                        <img src="{{ asset('uploads/blog/'.$blog->image) }}" alt="Hình ảnh" height="80px" width="150px">
+                                        <img src="{{ asset('uploads/blog/'.$blog->image) }}" alt="Hình ảnh" height="130px" width="500px">
                                     </a>
                                 </div>
                                 <div class="info">

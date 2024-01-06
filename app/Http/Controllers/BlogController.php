@@ -45,7 +45,8 @@ class BlogController extends Controller
                 'description'=>'required|max:255',
                 'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=2000,max_height=2000',
                 'content' => 'required',
-                'status' => 'required'
+                'status' => 'required',
+                'kind_of_blogs' => 'required',
             ],
             [
                 'title.unique' => 'Tên blog đã tồn tại, xin vui lòng điền tên khác',
@@ -64,6 +65,7 @@ class BlogController extends Controller
         $blog->description = $data['description'];
         $blog->content = $data['content'];
         $blog->status = $data['status'];
+        $blog->kind_of_blogs = $data['kind_of_blogs'];
 
         //thêm ảnh vào folder
         $get_image = $request->image;
@@ -118,7 +120,8 @@ class BlogController extends Controller
                 'slug' => 'required|max:255',
                 'description'=>'required|max:255',
                 'content'=>'required',
-                'status' => 'required'
+                'status' => 'required',
+                'kind_of_blogs' => 'required',
             ],
             [
                 'title.required' => 'Tên blog phải có',
@@ -132,6 +135,7 @@ class BlogController extends Controller
         $blog->title = $data['title'];
         $blog->description = $data['description'];
         $blog->status = $data['status'];
+        $blog->kind_of_blogs = $data['kind_of_blogs'];
 
         //thêm ảnh vào folder
         $get_image = $request->image;

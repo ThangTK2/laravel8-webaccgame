@@ -28,6 +28,7 @@
                             <th>Mô tả</th>
                             <th>Hiển thị</th>
                             <th>Hình ảnh</th>
+                            <th>Loại bài viết</th>
                             <th>Actions</th>
                           </tr>
                         </thead>
@@ -46,6 +47,13 @@
                                         @endif
                                     </td>
                                     <td><img src="{{ asset('uploads/blog/'.$item->image) }}" alt="Hình ảnh" height="80px" width="150px"></td>
+                                    <td>
+                                        @if ($item->kind_of_blogs=='blogs')
+                                            Blogs
+                                        @else
+                                            Hướng dẫn
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ route('blog.edit', $item->id) }}" class="btn btn-warning">Sửa</a>
                                         <form id="deleteForm{{ $item->id }}" action="{{ route('blog.destroy', $item->id) }}" method="post">

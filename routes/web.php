@@ -29,7 +29,7 @@ Route::get('/danh-muc/{slug}', [IndexController::class, 'danhmuccon'])->name('da
 //Blogs
 Route::get('/blogs', [IndexController::class, 'blogs'])->name('blogs');
 //Blog detail
-Route::get('/blogs/{slug}', [IndexController::class, 'blogs_detail'])->name('blogs_detail');
+Route::get('/post/{slug}', [IndexController::class, 'blogs_detail'])->name('blogs_detail');
 
 //Category
 Route::resource('/category', CategoryController::class); //resource: gồm thêm sửa xóa cập nhật
