@@ -264,12 +264,12 @@
                         <li class="c-menu-type-classic">
                            <a  rel=""  href="#" class="c-link dropdown-toggle ">Tin tức<span class="c-arrow c-toggler"></span></a>
                            <ul id="children-of-42" class="dropdown-menu c-menu-type-classic c-pull-left " >
-                              <li class="c-menu-type-classic"><a  rel="" href="/blog" class="">Blog</a></li>
-                              <li class="c-menu-type-classic"><a  rel="" href="/uy-tin-cua-shop" class="">UY T&Iacute;N CỦA SHOP</a></li>
+                              <li class="c-menu-type-classic"><a  rel="Blogs Game" href="{{ route('blogs') }}" class="">Blogs</a></li> {{-- blogs: name('blogs') bên file web.php  --}}
+                              {{-- <li class="c-menu-type-classic"><a  rel="" href="/uy-tin-cua-shop" class="">UY T&Iacute;N CỦA SHOP</a></li>
                               <li class="c-menu-type-classic"><a  rel="" href="/danh-sach-gdv-group" class="">Danh S&aacute;ch GDV group</a></li>
                               <li class="c-menu-type-classic"><a  rel="" href="/dich-vu-game" class="">Dịch Vụ Game</a></li>
                               <li class="c-menu-type-classic"><a  rel="" href="https://nick.vn/blog/dieu-khoan-su-dung-website-nickvn" class="">Điều khoản sử dụng website</a></li>
-                              <li class="c-menu-type-classic"><a  rel="" href="https://nick.vn/blog/chinh-sach-tai-nickvn" class="">Ch&iacute;nh s&aacute;ch tại Nick.vn</a></li>
+                              <li class="c-menu-type-classic"><a  rel="" href="https://nick.vn/blog/chinh-sach-tai-nickvn" class="">Ch&iacute;nh s&aacute;ch tại Nick.vn</a></li> --}}
                            </ul>
                         </li>
                         <li><a href="/login" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">

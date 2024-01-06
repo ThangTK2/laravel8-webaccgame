@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Danh Sách Danh Mục Game</div>
+                <div class="card-header">Danh Sách Blogs Game</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,14 +17,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('category.create') }}" class="btn btn-success">Thêm danh mục game</a>
+                    <a href="{{ route('blog.create') }}" class="btn btn-success">Thêm blog game</a>
                     <br><br>
                     <table class="table table-bordered" id="myTable">
                         <thead>
                           <tr>
                             <th>Id</th>
-                            <th>Tên danh mục</th>
-                            <th>Slug danh mục</th>
+                            <th>Tên blog</th>
+                            <th>Slug blog</th>
                             <th>Mô tả</th>
                             <th>Hiển thị</th>
                             <th>Hình ảnh</th>
@@ -32,12 +32,12 @@
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($category as $key => $item)
+                            @foreach ($blog as $key => $item)
                                 <tr>
                                     <td>{{ $key + 1}}</td>
                                     <td>{{ $item->title }}</td>
                                     <td>{{ $item->slug }}</td>
-                                    <td>{{ $item->description }}</td>
+                                    <td>{!!$item->description!!}</td> {{-- biến các thẻ html thành văn bản --}}
                                     <td>
                                         @if ($item->status ==0)
                                             Không hiển thị
@@ -45,13 +45,13 @@
                                             Hiển thị
                                         @endif
                                     </td>
-                                    <td><img src="{{ asset('uploads/category/'.$item->image) }}" alt="Hình ảnh" height="80px" width="150px"></td>
+                                    <td><img src="{{ asset('uploads/blog/'.$item->image) }}" alt="Hình ảnh" height="80px" width="150px"></td>
                                     <td>
-                                        <a href="{{ route('category.edit', $item->id) }}" class="btn btn-warning">Sửa</a>
-                                        <form id="deleteForm{{ $item->id }}" action="{{ route('category.destroy', $item->id) }}" method="post">
+                                        <a href="{{ route('blog.edit', $item->id) }}" class="btn btn-warning">Sửa</a>
+                                        <form id="deleteForm{{ $item->id }}" action="{{ route('blog.destroy', $item->id) }}" method="post">
                                             @method('DELETE')
                                             @csrf
-                                            <button onclick="return confirm('Bạn có muốn xóa danh mục game này không?')" class="btn btn-danger">Xóa</button>
+                                            <button onclick="return confirm('Bạn có muốn xóa blog này không?')" class="btn btn-danger">Xóa</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -60,7 +60,7 @@
                     </table>
                     {{-- Paginate --}}
                     <div>
-                        {{ $category->links('pagination::bootstrap-4') }}
+                        {{ $blog->links('pagination::bootstrap-4') }}
                         {{-- pagination::bootstrap-4: phân trang theo css bootstrap --}}
                     </div>
 

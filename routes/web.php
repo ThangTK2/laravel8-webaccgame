@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
@@ -25,6 +26,10 @@ Route::get('/dich-vu/{slug}', [IndexController::class, 'dichvucon'])->name('dich
 Route::get('/danh-muc-game/{slug}', [IndexController::class, 'danhmuc_game'])->name('danhmucgame'); // tat ca danh muc
 Route::get('/danh-muc/{slug}', [IndexController::class, 'danhmuccon'])->name('danhmuccon');//dịch vụ con thuộc danh muc
 
+//Blogs
+Route::get('/blogs', [IndexController::class, 'blogs'])->name('blogs');
+//Blog detail
+Route::get('/blogs/{slug}', [IndexController::class, 'blogs_detail'])->name('blogs_detail');
 
 //Category
 Route::resource('/category', CategoryController::class); //resource: gồm thêm sửa xóa cập nhật
@@ -35,3 +40,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //slider
 Route::resource('/slider', SliderController::class);
+
+//blogs
+Route::resource('/blog', BlogController::class);

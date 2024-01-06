@@ -91,6 +91,13 @@
         let table = new DataTable('#myTable');
     </script>
 
+    {{--thư viện  trình soạn thảo văn bản như word --}}
+    <script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'content_blog' );
+        CKEDITOR.replace( 'desc_blog' );
+    </script>
+
     {{-- Code js tạo slug tự động --}}
     <script type="text/javascript">
         function ChangeToSlug(){
